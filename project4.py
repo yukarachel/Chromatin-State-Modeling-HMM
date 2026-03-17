@@ -122,21 +122,6 @@ def baum_welch(emission_num, emissions, states, transition_matrix, emission_matr
         top_genes = np.argpartition(pos_probs, -5000)[-5000:] + 1
     return top_genes 
 
-# def predict(top_genes, top_promoters):
-#     predictions = []
-#     for interval in top_genes:
-#         predictions.append(("G", interval))
-    
-#     for interval in top_promoters:
-#         predictions.append(("P", interval))
-
-#     predictions.sort(key=lambda x: x[1])
-
-#     with open("predictions.csv", "w") as f:
-#         for p in predictions:
-#             f.write(f"{p[0]} {p[1]}\n")
-#     return predictions
-
 def predict(top_genes, top_promoters):
     # take top k by score first
     top_genes_sorted = sorted(top_genes)
